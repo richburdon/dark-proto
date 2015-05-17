@@ -1,0 +1,44 @@
+// Copyright 2014 Alien Laboratories, Inc.
+
+syntax = "proto2";
+
+package darkzero.net;
+
+option java_package = "com.darkzero.net";
+option java_outer_classname = "NetProto";
+
+//
+// Request
+//
+message Request {
+
+  message Header {}
+
+  message Query {
+    optional string id = 1;
+    optional int32 version = 2;
+    optional string text = 10;
+  }
+
+  repeated Header header = 1;
+  repeated Query query = 2;
+
+}
+
+//
+// Response
+//
+message Response {
+
+  message Header {}
+
+  message Result {
+    optional string id = 1;
+    optional int32 version = 2;
+    repeated string item_id = 10;
+  }
+
+  repeated Header header = 1;
+  repeated Result result = 2;
+
+}
