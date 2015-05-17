@@ -36,6 +36,8 @@ idea {
         excludeDirs += file("$buildDir/dependency-cache")
         excludeDirs += file("$buildDir/libs")
         excludeDirs += file("$buildDir/resources")
+        excludeDirs += file("$buildDir/reports")
+        excludeDirs += file("$buildDir/test-results")
         excludeDirs += file("$buildDir/tmp")
     }
 }
@@ -53,4 +55,8 @@ sourceSets {
             }
         }
     }
+}
+
+task pythonDist(type:Exec) {
+    commandLine 'python', 'setup.py', 'sdist'
 }
